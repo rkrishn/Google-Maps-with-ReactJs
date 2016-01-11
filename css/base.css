@@ -20,24 +20,6 @@ body {
   border: solid 1px #707070;
   box-shadow: 0 0 5px 1px #969696;
 }
-.navBarCls{
-      border: 50px solid tan;
-      text-align: center;
-}
-
-.navBarCls input[type="text"] {
-  padding: 10px;
-  border: solid 1px #dcdcdc;
-  transition: box-shadow 0.3s, border 0.3s;
-   
-    margin: 0px;
-}
-.navBarCls input[type="text"]:focus,
-.navBarCls input[type="text"].focus {
-  border: solid 1px #707070;
-  box-shadow: 0 0 5px 1px #969696;
-}
-
 
 .mapCls{
     height: 700px;
@@ -59,25 +41,6 @@ a {
 a:hover {
   text-decoration: underline;
 }
-.commentBox{
-  width: 50%;
-  height: 100%
-}
-code {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  font-family: "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
-  font-size: 12px;
-  margin: 0 2px;
-  padding: 0px 5px;
-}
-
-h1, h2, h3, h4 {
-  font-weight: bold;
-  margin: 0 0 15px;
-  padding: 0;
-}
 
 h1 {
   height: 4rem;
@@ -86,25 +49,4 @@ h1 {
   margin: 0 0 15px;
   padding: 0;
   text-align: center;
-}
-
-h2 {
-  border-bottom: 1px solid #eee;
-  font-size: 2em;
-}
-
-h3 {
-  font-size: 1.5em;
-}
-
-h4 {
-  font-size: 1.2em;
-}
-
-p, ul {
-  margin: 15px 0;
-}
-
-ul {
-  padding-left: 30px;
 }

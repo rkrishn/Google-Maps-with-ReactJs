@@ -14,7 +14,7 @@ var ListComponent = React.createClass({
 
         this.setState({searchString:e.target.value});
     },
-itemClick: function(e){
+    itemClick: function(e){
        e.preventDefault();
       //this.refs['mapInfo'].setSearchKey(e.target.text);       
       MapComponent.prototype.setSearchKey(e.target.text);    
@@ -54,16 +54,6 @@ itemClick: function(e){
 
 });
 
-/*var InterMedComponent= React.createClass({
- render: function() {
-  return(
-        <div>
-        <MapComponent />
-        <SearchExample />
-        </div>
-  );
-},*/
-
 MapComponent= React.createClass({
  render: function() {
   return(
@@ -92,32 +82,9 @@ setSearchKey: function(value){
     longitude = position.coords.longitude;
 
     $.get("http://ipinfo.io", function (response) {
-    alert(response.city);
+    
       }, "jsonp");
-
-
-    /*codeLatLng(latitude, longitude);
-
-     function codeLatLng(lat, lng) {
-    var geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(lat, lng);
-     geocoder.geocode({ 'latLng': latlng }, function (results, status) {
-        var result = results[0];
-        var state = '';
-
-        for (var i = 0, len = result.address_components.length; i < len; i++) {
-            var ac = result.address_components[i];
-
-            if (ac.types.indexOf('administrative_area_level_1') >= 0) {
-                state = ac.short_name;
-            }
-        }
-
-        alert(state);
-
-    });
-  }*/
-    var pyrmont = new google.maps.LatLng(parseFloat(latitude), parseFloat(longitude));
+  var pyrmont = new google.maps.LatLng(parseFloat(latitude), parseFloat(longitude));
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: pyrmont,
