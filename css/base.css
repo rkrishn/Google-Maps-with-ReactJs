@@ -7,7 +7,12 @@ body {
   padding: 30px;
 }
 
-
+.image{
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	border: 0;
+}
 .listCls input[type="text"] {
   padding: 10px;
   border: solid 1px #dcdcdc;
