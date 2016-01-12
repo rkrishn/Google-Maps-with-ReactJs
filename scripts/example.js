@@ -54,8 +54,8 @@ setSearchKey: function(value){
     var longitude;
     var markers = [];
     var count = 1;
-    var icons = {};
-    var iconNameTmpl = 'img/markers/number_{0}.png';
+    var markerObj = {};
+    var markerPath = 'img/markers/number_{0}.png';
      if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition,errorCallback,
                                          {enableHighAccuracy:true, timeout:60000, maximumAge:600000});
@@ -92,21 +92,19 @@ setSearchKey: function(value){
 }
 
 function createMarker(place) {
-  debugger;
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
-    icon: getIcon(count++), 
+    icon: getMarker(count++), 
     position: place.geometry.location,
     animation: google.maps.Animation.DROP
   });
 
-  function getIcon(num){
-    debugger;
-    var i = icons['m' + num];
+  function getMarker(num){
+    var i = markerObj['m' + num];
             if (typeof i === 'undefined' || i === null) {
-                i = icons['m' + num] = {
-                    url: iconNameTmpl.replace('{0}',num)
+                i = markerObj['m' + num] = {
+                    url: markerPath.replace('{0}',num)
                 };
             }
             return i;

@@ -25,7 +25,9 @@ body {
   border: solid 1px #707070;
   box-shadow: 0 0 5px 1px #969696;
 }
-
+.listCls ul li:hover {
+    background-color: beige;
+}
 .mapCls{
     height: 600px;
     width: 77%;
