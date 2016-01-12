@@ -7,11 +7,6 @@ var ListComponent = React.createClass({
     },
 
     handleChange: function(e){
-
-        // If you comment out this line, the text box will not change its value.
-        // This is because in React, an input cannot change independently of the value
-        // that was assigned to it. In our case this is this.state.searchString.
-
         this.setState({searchString:e.target.value});
     },
     itemClick: function(e){
@@ -19,38 +14,24 @@ var ListComponent = React.createClass({
        MapComponent.prototype.setSearchKey(e.target.text);    
     },
     render: function() {
-
         var libraries = this.props.data,
             searchString = this.state.searchString.trim().toLowerCase();
-
-
         if(searchString.length > 0){
-
             // We are searching. Filter the results.
-
             libraries = libraries.filter(function(l){
                 return l.title.toLowerCase().match( searchString );
             });
-
         }
         var listItems = libraries.map((function(l){
                             return (<li key={l.url} ><a href={l.url} onClick={this.itemClick}>{l.title}</a></li>)
                         }).bind(this));
-
-
         return <div className="listCls">
                     Filter By       <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Search..." />
-
                     <ul> 
-
                         {listItems}
-
                     </ul>
-
                 </div>;
-
     },
-
 });
 
 MapComponent= React.createClass({
@@ -60,7 +41,7 @@ MapComponent= React.createClass({
   );
 },
 componentDidMount: function() {
-   this.setSearchKey("Atm");    
+    this.setSearchKey("Atm");    
   },
 setSearchKey: function(value){
     this.drawMap(value);
@@ -82,17 +63,13 @@ setSearchKey: function(value){
     function showPosition(position) {
     latitude = position.coords.latitude ;
     longitude = position.coords.longitude;
+    var pyrmont = new google.maps.LatLng(parseFloat(latitude), parseFloat(longitude));
 
-    $.get("http://ipinfo.io", function (response) {
-    
-      }, "jsonp");
-  var pyrmont = new google.maps.LatLng(parseFloat(latitude), parseFloat(longitude));
-
-  map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
     center: pyrmont,
     zoom: 15,
     scrollwheel: true
-  });
+    });
 
   var request = {
     location: pyrmont,
@@ -118,7 +95,6 @@ function createMarker(place) {
     position: place.geometry.location
   });
   markers.push(marker);
-
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.close();
     infowindow.setContent(place.name+"...!"+place.formatted_address);
@@ -151,9 +127,7 @@ var GoogleMap = React.createClass({
   componentDidMount: function() {
    this.loadPlacesFromServer();    
   },
-  
   render: function() {
-
     return (
       <div className="googleMap">   
 	  <a target="_blank" href="https://github.com/rkrishn/"><img className="image" src="https://camo.githubusercontent.com/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png" /></a>
@@ -165,7 +139,6 @@ var GoogleMap = React.createClass({
       </div>
     );
   },
- 
 });
 var NavBar = React.createClass({
   render: function(){
@@ -180,7 +153,6 @@ var NavBar = React.createClass({
     var oZipCode = document.getElementsByTagName("input")[0].value;
     alert(oZipCode);
     }
-
 });
 ReactDOM.render(   
      <GoogleMap />,
