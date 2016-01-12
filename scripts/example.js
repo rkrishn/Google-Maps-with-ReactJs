@@ -61,7 +61,6 @@ setSearchKey: function(value){
                                          {enableHighAccuracy:true, timeout:60000, maximumAge:600000});
     }
     function errorCallback(param){
-      console.log(param);
     }
     function showPosition(position) {
     latitude = position.coords.latitude ;
@@ -79,7 +78,6 @@ setSearchKey: function(value){
     radius: '5500',
     query: value
   };
-  console.log(value);
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   service.textSearch(request, callback);
@@ -127,7 +125,6 @@ var GoogleMap = React.createClass({
       dataType: 'json',
       cache: false,
       success: function(data) {
-        console.log(data);
         this.setState({data: data.data});
         libraries = data.data;
       }.bind(this),
