@@ -53,6 +53,9 @@ setSearchKey: function(value){
     var latitude;
     var longitude;
     var markers = [];
+    var count = 1;
+    var icons = {};
+    var iconNameTmpl = 'img/markers/number_{0}.png';
      if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition,errorCallback,
                                          {enableHighAccuracy:true, timeout:60000, maximumAge:600000});
@@ -81,7 +84,7 @@ setSearchKey: function(value){
   var service = new google.maps.places.PlacesService(map);
   service.textSearch(request, callback);
   function callback(results, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {    
     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
     }
@@ -89,11 +92,25 @@ setSearchKey: function(value){
 }
 
 function createMarker(place) {
+  debugger;
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
-    position: place.geometry.location
+    icon: getIcon(count++), 
+    position: place.geometry.location,
+    animation: google.maps.Animation.DROP
   });
+
+  function getIcon(num){
+    debugger;
+    var i = icons['m' + num];
+            if (typeof i === 'undefined' || i === null) {
+                i = icons['m' + num] = {
+                    url: iconNameTmpl.replace('{0}',num)
+                };
+            }
+            return i;
+  }
   markers.push(marker);
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.close();
