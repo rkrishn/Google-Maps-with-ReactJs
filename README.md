@@ -2,7 +2,7 @@
 
 This is an Example POC which is developed using React Js 
 
-INSTRUCTIONS:
+INSTRUCTIONS TO RUN THE EXAMPLE
 
 1. go to project folder do npm install
 
