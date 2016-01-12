@@ -15,9 +15,8 @@ var ListComponent = React.createClass({
         this.setState({searchString:e.target.value});
     },
     itemClick: function(e){
-       e.preventDefault();
-      //this.refs['mapInfo'].setSearchKey(e.target.text);       
-      MapComponent.prototype.setSearchKey(e.target.text);    
+       e.preventDefault();     
+       MapComponent.prototype.setSearchKey(e.target.text);    
     },
     render: function() {
 
@@ -74,9 +73,12 @@ setSearchKey: function(value){
     var longitude;
     var markers = [];
      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(showPosition,errorCallback,
+                                         {enableHighAccuracy:true, timeout:60000, maximumAge:600000});
     }
-
+    function errorCallback(param){
+      console.log(param);
+    }
     function showPosition(position) {
     latitude = position.coords.latitude ;
     longitude = position.coords.longitude;
