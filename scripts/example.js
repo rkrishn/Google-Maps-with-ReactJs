@@ -65,16 +65,27 @@ setSearchKey: function(value){
     function showPosition(position) {
     latitude = position.coords.latitude ;
     longitude = position.coords.longitude;
-    var pyrmont = new google.maps.LatLng(parseFloat(latitude), parseFloat(longitude));
-
+    var currentLocation = new google.maps.LatLng(parseFloat(latitude), parseFloat(longitude));
+    var im = 'img/bluecircle.png';
     map = new google.maps.Map(document.getElementById('map'), {
-    center: pyrmont,
+    center: currentLocation,
     zoom: 15,
+    icon:im,
     scrollwheel: true
     });
 
+ var userMarker = new google.maps.Marker({
+            position: currentLocation,
+            map: map,
+            icon: im
+        });
+  google.maps.event.addListener(userMarker, 'click', function() {
+    infowindow.close();
+    infowindow.setContent("My Location");
+    infowindow.open(map, this);
+  });
   var request = {
-    location: pyrmont,
+    location: currentLocation,
     radius: '5500',
     query: value
   };
