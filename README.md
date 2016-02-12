@@ -13,4 +13,4 @@ INSTRUCTIONS TO RUN THE EXAMPLE
 
 Demo url:
 
-placesss.site88.net
+<a href="http://placesss.site88.net" target="_blank">placesss.site88.net</a>
