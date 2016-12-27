@@ -13,4 +13,4 @@ INSTRUCTIONS TO RUN THE EXAMPLE
 
 Demo url:
 
-<a href="http://placesss.site88.net" target="_blank">placesss.site88.net</a>
+<a href="https://rawgit.com/rkrishn/Google-Maps-with-ReactJs/master/index.html" target="_blank">Click here...!</a>
