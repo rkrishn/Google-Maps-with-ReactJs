@@ -132,7 +132,7 @@ var libraries;
 var GoogleMap = React.createClass({
   loadPlacesFromServer: function() {
     $.ajax({
-      url: "../data/places.json",
+      url: "https://rawgit.com/rkrishn/Google-Maps-with-ReactJs/master/data/places.json",
       dataType: 'json',
       cache: false,
       success: function(data) {
