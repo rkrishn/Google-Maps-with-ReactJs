@@ -30,7 +30,7 @@ body {
 }
 .mapCls{
     height: 600px;
-    width: 77%;
+    width: auto;
     border: 10px solid #8CB5D2;
 }
 .listCls{
