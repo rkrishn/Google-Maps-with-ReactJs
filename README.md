@@ -1,6 +1,6 @@
 # Google-Maps-with-ReactJs
 
-This is an Example which is developed using React Js 
+This is an Example which is developed using React Js, ES5
 
 INSTRUCTIONS TO RUN THE EXAMPLE
 
